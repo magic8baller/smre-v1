@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
-    extend: {}
+    extend: {
+			fontFamily: {
+				frank: ['frank ruhl libre', 'serif']
+			}
+		}
   },
   variants: {},
   plugins: []

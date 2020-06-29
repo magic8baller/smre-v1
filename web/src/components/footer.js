@@ -1,126 +1,110 @@
-import { Link } from "gatsby";
 import React from "react";
+import tw, {styled} from 'twin.macro';
+import SvgLogo from '../images/smre-logo1.svg';
 
-const Footer = ({ siteTitle }) => (
-  <footer className="bg-white">
-    <div className="container mx-auto  px-8">
-      <div className="w-full flex flex-col md:flex-row py-6">
-        <div className="flex-1 mb-6">
-          <a
-            className="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-            href="#"
-          >
-            <svg
-              className="h-8 fill-current inline"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512.005 512.005"
-            >
-              <rect
-                fill="#2a2a31"
-                x="16.539"
-                y="425.626"
-                width="479.767"
-                height="50.502"
-                transform="matrix(1,0,0,1,0,0)"
-                fill="rgb(0,0,0)"
-              />
-              <path
-                className="plane-take-off"
-                d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
-              />
-            </svg>{" "}
-            {siteTitle}
-          </a>
-        </div>
+const FooterContainer = styled.div`
+	${tw`container mx-auto pt-8 pb-4`}
+`
+const FooterColumn = styled.div`
+	${tw`w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-px md:px-px md:w-1/2 lg:my-2 lg:px-2 lg:w-1/4 xl:my-2 xl:px-2 xl:w-1/4 pb-6`}
 
-        <div className="flex-1">
-          <p className="uppercase text-gray-500 md:mb-6">Links</p>
-          <ul className="list-reset mb-6">
-            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a href="https://www.tailwindtoolbox.com/templates/landing-page">
-                <span className="hover:underline text-gray-800 hover:text-orange-500">
-                  Page theme
-                </span>
-              </a>
-            </li>
-            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
-                href="https://sanity.io/docs"
-                className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-              >
-                Sanity Help
-              </a>
-            </li>
-            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
-                href="https://slack.sanity.io"
-                className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-              >
-                Slack Community
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="flex-1">
-          <p className="uppercase text-gray-500 md:mb-6">Legal</p>
-          <ul className="list-reset mb-6">
-            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <span className="no-underline hover:underline text-gray-800 hover:text-orange-500">
-                Terms
-              </span>
-            </li>
-            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <span className="no-underline hover:underline text-gray-800 hover:text-orange-500">
-                Privacy
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div className="flex-1">
-          <p className="uppercase text-gray-500 md:mb-6">Social</p>
-          <ul className="list-reset mb-6">
-            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
-                href="https://twitter.com/sanity_io"
-                className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-              >
-                Twitter
-              </a>
-            </li>
-            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
-                href="https://www.linkedin.com/company/sanity-io/"
-                className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-              >
-                Linkedin
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="flex-1">
-          <p className="uppercase text-gray-500 md:mb-6">Company</p>
-          <ul className="list-reset mb-6">
-            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <Link
-                to="/blog"
-                className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-              >
-                Blog
-              </Link>
-            </li>
-            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-              <a
-                href="https://www.sanity.io/contact"
-                className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+		h4 {
+			${tw`text-white uppercase`}
+		}
+		ul {
+			${tw``}
+		}
+
+`
+const footerLinks = [
+	[
+		{id: '1a', text: 'FAQ'},
+		{id: '1b', text: 'Help'},
+
+	],
+	[
+		{id: '2a', text: 'Terms'},
+		{id: '2b', text: 'Privacy'},
+
+	],
+	[
+		{id: '3a', text: 'About Us'},
+		{id: '3b', text: 'Our Team'},
+		{id: '3d', text: 'Official Blog'},
+		{id: '3c', text: 'Contact'},
+	],
+	[
+		{id: '4a', text: 'Mortgages'},
+		{id: '4b', text: 'Loans'},
+
+
+	]
+]
+const Footer = ({siteTitle}) => (
+	<footer className="bg-gray-500">
+		<FooterContainer>
+			<div tw='flex flex-wrap overflow-hidden sm:-mx-1 md:-mx-px lg:-mx-2 xl:-mx-2'>
+				<FooterColumn>
+					<img src={SvgLogo} maxWidth='70%' height='auto' alt={`${siteTitle} logo`} />
+				</FooterColumn>
+				<FooterColumn>
+					<ul>
+						<h4>
+							links
+</h4>
+						{footerLinks[0].map(link =>
+							<li tw='leading-7 text-sm' key={link.id}>
+								<a href='/' tw='text-white underline text-sm'>{link.text}</a>
+							</li>
+						)}
+					</ul>
+				</FooterColumn>
+				{/* <FooterColumn>
+<ul>
+<h4>
+	legal
+</h4>
+{footerLinks[1].map(link =>
+	<li key={link.id}>
+		{link.text}
+	</li>
+)}
+</ul>
+				</FooterColumn> */}
+				<FooterColumn>
+					<ul>
+						<h4>
+							services
+</h4>
+						{footerLinks[3].map(link =>
+							<li tw='leading-7 text-sm' key={link.id}>
+								<a href='/' tw='text-white underline text-sm'>{link.text}</a>
+							</li>
+						)}
+					</ul>
+				</FooterColumn>
+				<FooterColumn>
+					<ul>
+						<h4>
+							company
+</h4>
+						{footerLinks[2].map(link =>
+							<li tw='leading-7 text-sm' key={link.id}>
+								<a href='/' tw='text-white underline text-sm'>{link.text}</a>
+							</li>
+						)}
+					</ul>
+				</FooterColumn>
+			</div>
+			<div className="pt-4 md:flex md:items-center md:justify-center" style={{borderTop: '1px solid white'}}>
+				<ul className="">
+					<li className="md:mx-2 md:inline leading-7 text-sm" id="footer-navi-2"><a href='/' className="text-white underline text-sm" href="/disclaimer">Disclaimer</a></li>
+					<li className="md:mx-2 md:inline leading-7 text-sm" id="footer-navi-2"><a href='/' className="text-white underline text-sm" href="/cookie">Cookie policy</a></li>
+					<li className="md:mx-2 md:inline leading-7 text-sm" id="footer-navi-2"><a href='/' className="text-white underline text-sm" href="/privacy">Privacy</a></li>
+				</ul>
+			</div>
+		</FooterContainer>
+	</footer>
 );
 
 export default Footer;

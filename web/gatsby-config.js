@@ -10,13 +10,33 @@ const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   plugins: [
-    "gatsby-plugin-postcss",
+		"gatsby-plugin-postcss",
+		`gatsby-plugin-emotion`,
+		{
+			resolve: 'gatsby-plugin-root-import',
+			options: {
+				root: path.join(__dirname, 'src')
+			}
+		},
+		  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [`gatsby-remark-responsive-iframe`],
+    },
+  },
     "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: path.join(__dirname, `src`, `images`)
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: path.join(__dirname, `src`, `content`)
       }
     },
     `gatsby-transformer-sharp`,

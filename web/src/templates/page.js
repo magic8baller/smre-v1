@@ -11,7 +11,7 @@ import { TopWave, BottomWave } from "../components/wave";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
-
+import About from '../lib/about'
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
     route: sanityRoute(id: { eq: $id }) {
@@ -61,9 +61,10 @@ const Page = (props) => {
     );
   }
 
-  const page = data.page || data.route.page;
-
-  const content = (page._rawContent || [])
+	const page = data.page || data.route.page;
+	const isAbout = data.route.slug.current === 'about'
+// const renderAbout = () => isAbout && <About />
+	let content = (page._rawContent || [])
     .filter((c) => !c.disabled)
     .map((c, i) => {
       let el = null;
@@ -108,7 +109,7 @@ const Page = (props) => {
 
   const menuItems = page.navMenu && (page.navMenu.items || []);
   const pageTitle = data.route && !data.route.useSiteTitle && page.title;
-
+// const isAbout = data.route.slug.current === 'about'
   return (
     <Layout navMenuItems={menuItems} textWhite={true}>
       <SEO
@@ -118,9 +119,11 @@ const Page = (props) => {
         bodyAttr={{
           class: "leading-normal tracking-normal text-white gradient",
         }}
-        gradient={gradient}
+        gradient={isAbout ? null:gradient}
       />
-      <div className="pt-24">{content}</div>
+      <div className="pt-24">
+				{isAbout? <About/> : content}
+			</div>
     </Layout>
   );
 };
